@@ -1,0 +1,66 @@
+syntax = "proto3";
+
+package list_service;
+
+service ListService {
+
+    // Show list values
+    rpc ShowList (EmptyMessage) returns (ListData) {}
+
+    // Ads an element at the end of the list
+    rpc Append (Data) returns (ListData) {}
+
+    // Removes all the elements from the list
+    rpc Clear (EmptyMessage) returns (ListData) {}
+
+    // Returns a copy of the list
+    rpc Copy (EmptyMessage) returns (ListData) {}
+
+    // Returns the number of elements with the specified value
+    rpc CountElements (EmptyMessage) returns (Count) {}
+
+    // Add the elements of a list (or any iterable), to the end of the current list
+    rpc Extend (ListData) returns (ListData) {}
+
+    // Returns the index of the first element with the specified value
+    rpc IndexOfElement (Data) returns (Index) {}
+
+    // Adds an element at the specified position
+    rpc Insert (InsertData) returns (ListData) {}
+
+    // Removes the element at the specified position
+    rpc Pop (Index) returns (ListData) {}
+
+    // Removes the first item with the specified value
+    rpc Remove (Data) returns (ListData) {}
+
+    // Reverses the order of the list
+    rpc Reverse (EmptyMessage) returns (ListData) {}
+
+    // Sorts the list
+    rpc Sort (EmptyMessage) returns (ListData) {}
+
+}
+
+message EmptyMessage {}
+
+message Data {
+    int32 data = 1;
+}
+
+message ListData {
+    repeated int32 data = 1;
+}
+
+message Count {
+    uint32 count = 1;
+}
+
+message Index {
+    uint32 index = 1;
+}
+
+message InsertData {
+    uint32 index = 1;
+    int32 data = 2;
+}
