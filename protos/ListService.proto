@@ -17,7 +17,7 @@ service ListService {
     rpc Copy (EmptyMessage) returns (ListData) {}
 
     // Returns the number of elements with the specified value
-    rpc CountElements (EmptyMessage) returns (Count) {}
+    rpc CountElements (Data) returns (Count) {}
 
     // Add the elements of a list (or any iterable), to the end of the current list
     rpc Extend (ListData) returns (ListData) {}

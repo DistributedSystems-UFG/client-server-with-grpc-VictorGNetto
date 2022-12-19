@@ -36,7 +36,7 @@ class ListServiceStub(object):
                 )
         self.CountElements = channel.unary_unary(
                 '/list_service.ListService/CountElements',
-                request_serializer=ListService__pb2.EmptyMessage.SerializeToString,
+                request_serializer=ListService__pb2.Data.SerializeToString,
                 response_deserializer=ListService__pb2.Count.FromString,
                 )
         self.Extend = channel.unary_unary(
@@ -188,7 +188,7 @@ def add_ListServiceServicer_to_server(servicer, server):
             ),
             'CountElements': grpc.unary_unary_rpc_method_handler(
                     servicer.CountElements,
-                    request_deserializer=ListService__pb2.EmptyMessage.FromString,
+                    request_deserializer=ListService__pb2.Data.FromString,
                     response_serializer=ListService__pb2.Count.SerializeToString,
             ),
             'Extend': grpc.unary_unary_rpc_method_handler(
@@ -316,7 +316,7 @@ class ListService(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/list_service.ListService/CountElements',
-            ListService__pb2.EmptyMessage.SerializeToString,
+            ListService__pb2.Data.SerializeToString,
             ListService__pb2.Count.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
